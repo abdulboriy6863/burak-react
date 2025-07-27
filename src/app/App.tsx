@@ -2,33 +2,23 @@ import React from "react";
 import "../css/app.css";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import { RippleBadge } from "./MaterialTheme/styled";
-import { Link, Switch, Route } from "react-router-dom";
+import { Link, Switch, Route, useLocation } from "react-router-dom";
 
 import { HomePage } from "./screens/homePage";
 import { ProductsPage } from "./screens/productsPage";
 import { OrdersPage } from "./screens/ordersPage";
 import { UserPage } from "./screens/userPage";
+import { HomeNavbar } from "./components/headers/HomeNavbar";
+import { OtherNavbar } from "./components/headers/OtherNavbar";
+import { Footer } from "./components/footer";
 
 function App() {
-  return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">HomePage</Link>
-          </li>
-          <li>
-            <Link to="/products">ProductsPage</Link>
-          </li>
-          <li>
-            <Link to="/orders">OrdersPage</Link>
-          </li>
-          <li>
-            <Link to="/member-page">UsersPage</Link>
-          </li>
-        </ul>
-      </nav>
+  const location = useLocation();
+  console.log();
 
+  return (
+    <>
+      {location.pathname === "/" ? <HomeNavbar /> : <OtherNavbar />}
       <Switch>
         <Route path="/products">
           <ProductsPage />
@@ -43,7 +33,8 @@ function App() {
           <HomePage />
         </Route>
       </Switch>
-    </div>
+      <Footer />
+    </>
   );
 }
 
