@@ -5,15 +5,7 @@ import Card from "@mui/joy/Card";
 import CardCover from "@mui/joy/CardCover";
 import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
-import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
-
-import AspectRatio from "@mui/joy/AspectRatio";
 import CardOverflow from "@mui/joy/CardOverflow";
-import Divider from "@mui/joy/Divider";
-import IconButton from "@mui/joy/IconButton";
-import Link from "@mui/joy/Link";
-import Favorite from "@mui/icons-material/Favorite";
-
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 
@@ -51,7 +43,7 @@ export default function PopularDishes() {
                         justifyContent={"space-between"}
                       >
                         <Typography
-                          level="h2"
+                          level="h3"
                           fontSize="lg"
                           textColor="#fff"
                           mb={1}
