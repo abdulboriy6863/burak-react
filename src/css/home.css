@@ -108,16 +108,19 @@
   width: 100%;
   height: 605px;
   background: rgb(248, 248, 255);
+  display: flex;
 }
 
-.homepage .new-dishes-frame .new-dishes-section {
-  margin-top: 45px;
+.homepage .new-dishes-frame .new-dish-main {
+  margin-top: 50px;
+  height: 420px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.homepage .new-dishes-frame .new-dishes-section .category-title {
+.homepage .new-dishes-frame .new-dish-main .category-title {
   text-align: center;
   font-family: "Roboto Serif";
   font-size: 36px;
@@ -128,15 +131,21 @@
   color: #000;
 }
 
-.homepage .new-dishes-frame .new-dishes-section .card-frame {
-  margin-top: 43px;
+.homepage .new-dishes-frame .new-dish-frame {
+  margin-top: 40px;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.homepage .new-dishes-frame .new-dishes-section .card-frame .product-sale {
+.homepage .new-dishes-frame .new-dish-frame .card {
+  width: 290px;
+  height: 335px;
+  cursor: pointer;
+}
+
+.homepage .new-dishes-frame .new-dish-frame .card .product-sale {
   position: absolute;
   margin-top: 10px;
   z-index: 100;
@@ -156,35 +165,24 @@
   color: #f8f8ff;
 }
 
-.homepage .new-dishes-frame .new-dishes-section .card-frame .card {
-  height: 335px;
-  min-width: 290px;
-  cursor: pointer;
+.homepage .new-dishes-frame .new-dish-frame .card .product-sale:hover {
+  width: 93px;
+  height: 33px;
 }
 
-.homepage
-  .new-dishes-frame
-  .new-dishes-section
-  .card-frame
-  .card
-  .product-details {
-  width: auto;
-  height: 49px;
+.homepage .new-dishes-frame .new-dish-frame .card .product-details {
+  width: 100%;
+  height: 49%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   margin-top: -12px;
   border-top: 1px solid;
-  border-color: #f8f8ff;
+  border-color: #fafbfb;
   background-color: #fafbfb;
 }
 
-.homepage
-  .new-dishes-frame
-  .new-dishes-section
-  .card-frame
-  .card
-  .product-details
-  .info {
+.homepage .new-dishes-frame .new-dish-frame .card .product-details .main-text {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -192,18 +190,28 @@
   align-items: center;
 }
 
-.homepage .new-dishes-frame .new-dishes-section .card-frame .card .card-cover {
-  border-radius: 0px 0px 12px 12px;
+.homepage
+  .new-dishes-frame
+  .new-dish-frame
+  .card
+  .product-details
+  .main-text
+  .name-cost {
+  width: 85px;
+  height: 24px;
 
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  background: rgb(250, 251, 251);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-/* .homepage .new-dishes-frame .new-dishes-section .card-frame .card .dishes-name {
-  font-family: "Roboto Serif";
-  font-size: 13px;
+.homepage
+  .new-dishes-frame
+  .new-dish-frame
+  .card
+  .product-details
+  .views-style {
+  display: flex;
+  align-items: center;
   font-weight: 500;
-  line-height: 15px;
-  letter-spacing: 4%;
-  color: rgb(37, 39, 45);
-} */
+}

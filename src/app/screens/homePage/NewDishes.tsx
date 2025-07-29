@@ -9,6 +9,7 @@ import Typography from "@mui/joy/Typography";
 import { CssVarsProvider } from "@mui/joy/styles";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import CardCover from "@mui/joy/CardCover";
+import { Celebration } from "@mui/icons-material";
 
 const newDishes = [
   {
@@ -25,9 +26,9 @@ export default function NewDishes() {
   return (
     <div className="new-dishes-frame">
       <Container>
-        <Stack className="new-dishes-section">
-          <Box className="category-title">Fresh Menu</Box>
-          <Stack className="card-frame">
+        <Stack className="new-dish-main">
+          <Box className="category-title">Popular Dishes</Box>
+          <Stack className="new-dish-frame">
             <CssVarsProvider>
               {newDishes.map((ele, index) => {
                 return (
@@ -39,35 +40,23 @@ export default function NewDishes() {
                       </AspectRatio>
                     </CardOverflow>
                     <CardOverflow variant="soft" className="product-details">
-                      <CardCover className={"card-cover"} />
-                      <Stack className="info">
-                        <CardContent orientation="horizontal">
-                          <Typography className={"title"}>
+                      <Stack className="main-text">
+                        <Stack className="name-cost">
+                          <Typography className="title">
                             {ele.productName}
                           </Typography>
                           <Divider orientation="vertical" />
-                          <Typography
-                            level="body-xs"
-                            textColor="text.secondary"
-                            sx={{ fontWeight: "md" }}
-                          >
-                            $6
-                          </Typography>
-                          <Typography
-                            sx={{
-                              marginLeft: "40px",
-                              fontWeight: "md",
-                              color: "neutral.300",
-                              alignItems: "center",
-                              display: "flex",
-                            }}
-                          >
-                            1
+                          <Typography className="cost">$12</Typography>
+                        </Stack>
+                        <Stack>
+                          <Typography className="views-style">
+                            100k
                             <VisibilityIcon
-                              sx={{ fontSize: 25, marginLeft: "5px" }}
+                              className="visiblity"
+                              sx={{ fontSize: 20, marginLeft: "5px" }}
                             />
                           </Typography>
-                        </CardContent>
+                        </Stack>
                       </Stack>
                     </CardOverflow>
                   </Card>
