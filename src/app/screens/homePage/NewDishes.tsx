@@ -2,14 +2,11 @@ import React from "react";
 import { Box, Container, Stack } from "@mui/material";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Card from "@mui/joy/Card";
-import CardContent from "@mui/joy/CardContent";
 import CardOverflow from "@mui/joy/CardOverflow";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/joy/Typography";
 import { CssVarsProvider } from "@mui/joy/styles";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import CardCover from "@mui/joy/CardCover";
-import { Celebration } from "@mui/icons-material";
 
 const newDishes = [
   {
