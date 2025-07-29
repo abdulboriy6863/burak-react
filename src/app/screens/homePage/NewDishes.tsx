@@ -4,7 +4,7 @@ import AspectRatio from "@mui/joy/AspectRatio";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import CardOverflow from "@mui/joy/CardOverflow";
-import Divider from "@mui/joy/Divider";
+import Divider from "@mui/material/Divider";
 import Typography from "@mui/joy/Typography";
 import { CssVarsProvider } from "@mui/joy/styles";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -26,33 +26,41 @@ export default function NewDishes() {
   return (
     <div className="new-dishes-frame">
       <Container>
-        <Stack className="new-dish-main">
-          <Box className="category-title">Popular Dishes</Box>
-          <Stack className="new-dish-frame">
+        <Stack className={"main"}>
+          <Box className={"category-title"}>Fresh Menu</Box>
+          <Stack className={"card-frame"}>
             <CssVarsProvider>
               {newDishes.map((ele, index) => {
                 return (
-                  <Card key={index} variant="outlined" className="card">
+                  <Card key={index} variant="outlined" className={"card"}>
                     <CardOverflow>
                       <div className="product-sale">Normal size</div>
                       <AspectRatio ratio="1">
-                        <img src={ele.imagePath} alt="" />
+                        <img src={ele.imagePath} />
                       </AspectRatio>
                     </CardOverflow>
-                    <CardOverflow variant="soft" className="product-details">
-                      <Stack className="main-text">
-                        <Stack className="name-cost">
-                          <Typography className="title">
+
+                    <CardOverflow variant="soft" className={"product-details"}>
+                      <Stack className="info">
+                        <Stack flexDirection={"row"}>
+                          <Typography className={"title"}>
                             {ele.productName}
                           </Typography>
-                          <Divider orientation="vertical" />
-                          <Typography className="cost">$12</Typography>
+                          <Divider
+                            orientation="vertical"
+                            flexItem
+                            sx={{
+                              height: 24,
+                              backgroundColor: "#d9d9d9",
+                              mx: 1,
+                            }}
+                          />{" "}
+                          <Typography className={"price"}>$12</Typography>
                         </Stack>
                         <Stack>
-                          <Typography className="views-style">
-                            100k
+                          <Typography className={"views"}>
+                            20
                             <VisibilityIcon
-                              className="visiblity"
                               sx={{ fontSize: 20, marginLeft: "5px" }}
                             />
                           </Typography>
