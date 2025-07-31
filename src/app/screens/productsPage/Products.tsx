@@ -4,9 +4,22 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import PaidIcon from "@mui/icons-material/Paid";
 import { CssVarsProvider } from "@mui/joy/styles";
 import AspectRatio from "@mui/joy/AspectRatio";
-import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import CardCover from "@mui/joy/CardCover";
+
+import Badge, { BadgeProps } from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
+import IconButton from "@mui/material/IconButton";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
+// const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+//   "& .MuiBadge-badge": {
+//     right: -3,
+//     top: 13,
+//     border: `2px solid ${(theme.vars ?? theme).palette.background.paper}`,
+//     padding: "0 4px",
+//     fontSize: "10px",
+//   },
+// }));
 
 const products = [
   { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
@@ -69,7 +82,23 @@ export default function Products() {
             </Button>
           </Stack>
           <Stack className="product-box">
-            <Stack className="button-left-box"></Stack>
+            <Stack className="button-left-box">
+              <Button variant="contained" color="primary" className="rotate">
+                New
+              </Button>
+              <Button variant="contained" color="secondary" className="rotate">
+                Price
+              </Button>
+              <Button variant="contained" color="secondary" className="rotate">
+                Views
+              </Button>
+              <Button variant="contained" color="secondary" className="rotate">
+                Views
+              </Button>
+              <Button variant="contained" color="secondary" className="rotate">
+                OTHER
+              </Button>
+            </Stack>
             <Stack className={"product-img-box"}>
               <CssVarsProvider>
                 {products.length !== 0 ? (
@@ -80,7 +109,12 @@ export default function Products() {
                         <AspectRatio ratio="1">
                           <img src={ele.imagePath} />
                         </AspectRatio>
-
+                        {/* 
+                          <IconButton aria-label="cart">
+                            <StyledBadge badgeContent={4} color="secondary">
+                              <ShoppingCartIcon />
+                            </StyledBadge>
+                          </IconButton> */}
                         <Stack className="info">
                           <Stack>
                             <Typography className={"title"}>
@@ -145,6 +179,20 @@ export default function Products() {
                 )}
               </CssVarsProvider>
             </Stack>
+          </Stack>
+        </Container>
+      </div>
+      <div className="adress">
+        <Container>
+          <Stack className="adress-area">
+            <Box className="title-adress">Our adress</Box>
+            <iframe
+              style={{ marginTop: "60px" }}
+              src="https://www.google.com/maps?q=36.623494,127.446876&z=15&output=embed"
+              width="1320"
+              height="500"
+              // referrerPolicy="no-referrer-when-drowngrade"
+            ></iframe>
           </Stack>
         </Container>
       </div>
