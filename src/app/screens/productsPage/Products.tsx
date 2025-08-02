@@ -1,56 +1,43 @@
 import * as React from "react";
-import { Box, Button, Card, Container, Input, Typography } from "@mui/material";
+import {
+  Badge,
+  Box,
+  Button,
+  colors,
+  Container,
+  Input,
+  Stack,
+} from "@mui/material";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import PaidIcon from "@mui/icons-material/Paid";
-import { CssVarsProvider } from "@mui/joy/styles";
-import AspectRatio from "@mui/joy/AspectRatio";
-import Stack from "@mui/material/Stack";
-
-import Badge, { BadgeProps } from "@mui/material/Badge";
-import { styled } from "@mui/material/styles";
-import IconButton from "@mui/material/IconButton";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
-// const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
-//   "& .MuiBadge-badge": {
-//     right: -3,
-//     top: 13,
-//     border: `2px solid ${(theme.vars ?? theme).palette.background.paper}`,
-//     padding: "0 4px",
-//     fontSize: "10px",
-//   },
-// }));
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import Pagination from "@mui/material/Pagination";
 
 const products = [
   { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
   { productName: "Kebab", imagePath: "/img/kebab.webp" },
-  { productName: "Gayratbek", imagePath: "/img/fresh.webp" },
-  { productName: "Gayratbek", imagePath: "/img/lavash.webp" },
-  {
-    productName: "Gayratbek",
-    imagePath:
-      "https://ds393qgzrxwzn.cloudfront.net/resize/m600x500/cat1/img/images/0/g9c9pse7gf.jpg",
-  },
+  { productName: "Steak", imagePath: "/img/fresh.webp" },
+  { productName: "Lavash", imagePath: "/img/lavash.webp" },
+  { productName: "Lavash", imagePath: "/img/lavash.webp" },
+  { productName: "Lavash", imagePath: "/img/lavash.webp" },
+  { productName: "Lavash", imagePath: "/img/lavash.webp" },
+  { productName: "Lavash", imagePath: "/img/lavash.webp" },
+  { productName: "Lavash", imagePath: "/img/lavash.webp" },
 ];
 
 const bumarak = [
-  {
-    imagePath:
-      "https://www.esquireme.com/wp-content/uploads/sites/9/cloud/2021/09/08/6Q8A5606.jpg",
-  },
-  { imagePath: "/img/seafood.webp" },
-  { imagePath: "/img/seafood.webp" },
-  { imagePath: "/img/seafood.webp" },
+  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
+  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
 ];
 
 export default function Products() {
   return (
-    <div className="products-frame">
+    <div className="product-frame">
       <Container>
-        <Stack className="products-section">
-          <Stack className="title-search-box">
-            <Box className="title">Bumarak Restaurant</Box>
-            <Stack className="searching-box">
+        <Stack className="main">
+          <Stack className="top-title-input">
+            <Box className="title">Burak Restaurant</Box>
+            <Stack className="input-butt-box">
               <Input
                 className="input"
                 placeholder="Type here"
@@ -58,10 +45,11 @@ export default function Products() {
                 sx={{
                   border: "none",
                   borderRadius: "8px",
+                  marginRight: "70px",
                 }}
               />
               <Button
-                className={"searching-button"}
+                className="searching-button"
                 variant={"contained"}
                 color={"primary"}
               >
@@ -70,114 +58,126 @@ export default function Products() {
               </Button>
             </Stack>
           </Stack>
-          <Stack className="button-top-box">
-            <Button variant="contained" color="primary">
-              New
-            </Button>
-            <Button variant="contained" color="secondary">
-              Price
-            </Button>
-            <Button variant="contained" color="secondary">
-              Views
-            </Button>
-          </Stack>
-          <Stack className="product-box">
-            <Stack className="button-left-box">
-              <Button variant="contained" color="primary" className="rotate">
+          <Stack className="product-butt-img">
+            <Stack className="top-butt-box">
+              <Button variant="contained" color="primary">
                 New
               </Button>
-              <Button variant="contained" color="secondary" className="rotate">
+
+              <Button variant="contained" color="secondary">
                 Price
               </Button>
-              <Button variant="contained" color="secondary" className="rotate">
+
+              <Button variant="contained" color="secondary">
                 Views
-              </Button>
-              <Button variant="contained" color="secondary" className="rotate">
-                Views
-              </Button>
-              <Button variant="contained" color="secondary" className="rotate">
-                OTHER
               </Button>
             </Stack>
-            <Stack className={"product-img-box"}>
-              <CssVarsProvider>
+            <Stack className="butt-swiper-box">
+              <Stack className="left-butt-box">
+                <Button variant="contained" color="primary" className="rotate">
+                  Dish
+                </Button>
+
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  className="rotate"
+                >
+                  Salad
+                </Button>
+
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  className="rotate"
+                >
+                  Drink{" "}
+                </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  className="rotate"
+                >
+                  Desert
+                </Button>
+
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  className="rotate"
+                >
+                  Other
+                </Button>
+              </Stack>
+              <Stack className="wrap-box">
                 {products.length !== 0 ? (
                   products.map((ele, index) => {
                     return (
-                      <Card key={index} variant="outlined" className={"card"}>
-                        <div className="product-sale">Large size</div>
-                        <AspectRatio ratio="1">
-                          <img src={ele.imagePath} />
-                        </AspectRatio>
-                        {/* 
-                          <IconButton aria-label="cart">
-                            <StyledBadge badgeContent={4} color="secondary">
-                              <ShoppingCartIcon />
-                            </StyledBadge>
-                          </IconButton> */}
-                        <Stack className="info">
-                          <Stack>
-                            <Typography className={"title"}>
-                              {ele.productName}
-                            </Typography>
-
-                            <Stack marginTop={"5px"}>
-                              <Box
-                                className="cost"
-                                display={"flex"}
-                                flexDirection={"row"}
-                                justifyContent={"center"}
-                                alignItems={"center"}
-                              >
-                                <PaidIcon className="icon" />
-                                <Typography className="cost">15</Typography>
-                              </Box>
+                      <Stack className="product-img-box">
+                        <Stack key={index} className="full-img-box">
+                          <Stack
+                            className="image-box"
+                            sx={{ backgroundImage: `url(${ele.imagePath})` }}
+                          >
+                            <div className="product-sale">Normal size</div>
+                            <Stack className="view-basket-box">
+                              <Button className="shop-basket">
+                                <img src={"/icons/shopping-cart.svg"} />
+                              </Button>
+                              <Button className="view-bnt" sx={{}}>
+                                <Badge badgeContent={20} color="secondary">
+                                  <RemoveRedEyeIcon />
+                                </Badge>
+                              </Button>
                             </Stack>
                           </Stack>
-                          {/* <Stack spacing={2}>
-                            <Pagination count={10} color="secondary" />
-                          </Stack> */}
+                          <Stack className="imgage-title-box">
+                            <span className="prd-name">{ele.productName}</span>
+                            <div className="product-cost">
+                              <MonetizationOnIcon />
+                              {12}
+                            </div>
+                          </Stack>
                         </Stack>
-                      </Card>
+                      </Stack>
                     );
                   })
                 ) : (
                   <Box className="no-data">New products are not available</Box>
                 )}
-              </CssVarsProvider>
+              </Stack>
             </Stack>
+          </Stack>
+          <Stack spacing={2} className="pagination">
+            <Pagination count={3} className="pagination-num" />
           </Stack>
         </Stack>
       </Container>
-      <div className="burak-img-frame">
+      <div className="burak-img">
         <Container>
-          <Stack className="burak-sesction">
-            <Box className="burak-title">Our Family Brands</Box>
-            <Stack className="burak-img">
-              <CssVarsProvider>
-                {bumarak.length !== 0 ? (
-                  bumarak.map((ele, index) => {
-                    return (
-                      <Card
-                        key={index}
-                        variant="outlined"
-                        className={"card-bottom"}
-                      >
-                        <AspectRatio ratio={"4/6"}>
-                          <img
-                            src={ele.imagePath}
-                            style={{
-                              objectFit: "cover",
-                            }}
-                          />
-                        </AspectRatio>
-                      </Card>
-                    );
-                  })
-                ) : (
-                  <Box className="no-data">New products are not available</Box>
-                )}
-              </CssVarsProvider>
+          <Stack className="main-burak-box">
+            <Box className="title-burak-box">Our Family Brand</Box>
+            <Stack className="br-img-boxes">
+              <Stack className="burak-card">
+                <Box className="burak-img-card">
+                  <img src="/img/kebab-fresh.webp" alt="" />
+                </Box>
+              </Stack>
+              <Stack className="burak-card">
+                <Box className="burak-img-card">
+                  <img src="/img/kebab-fresh.webp" alt="" />
+                </Box>
+              </Stack>
+              <Stack className="burak-card">
+                <Box className="burak-img-card">
+                  <img src="/img/kebab-fresh.webp" alt="" />
+                </Box>
+              </Stack>
+              <Stack className="burak-card">
+                <Box className="burak-img-card">
+                  <img src="/img/kebab-fresh.webp" alt="" />
+                </Box>
+              </Stack>
             </Stack>
           </Stack>
         </Container>
@@ -186,12 +186,12 @@ export default function Products() {
         <Container>
           <Stack className="adress-area">
             <Box className="title-adress">Our adress</Box>
+
             <iframe
               style={{ marginTop: "60px" }}
               src="https://www.google.com/maps?q=36.623494,127.446876&z=15&output=embed"
               width="1320"
               height="500"
-              // referrerPolicy="no-referrer-when-drowngrade"
             ></iframe>
           </Stack>
         </Container>
