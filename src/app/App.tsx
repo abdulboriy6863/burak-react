@@ -33,6 +33,9 @@ function App() {
           <Route path="/help">
             <HelpPage />
           </Route>
+          <Route path="/orders">
+            <OrdersPage />
+          </Route>
         </Route>
         <Route path="/">
           <HomePage />
