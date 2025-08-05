@@ -21,7 +21,7 @@
 .orders-page .order-inf {
   margin-top: 20px;
   width: 868.88px;
-  height: 236px;
+  height: auto;
   border-radius: 16px;
 
   box-shadow: inset 0px 4px 16px 0px rgba(242, 189, 87, 0.04),
@@ -41,7 +41,7 @@
 .orders-page .order-inf .order-box-scroll {
   margin: 30px 0 30px 70px;
   width: 702.73px;
-  height: 129.9px;
+  height: auto;
 }
 
 .orders-page .order-inf .order-box-scroll .order-name-price {
@@ -81,7 +81,7 @@
 }
 
 .orders-page .total-price-box {
-  margin-top: 30px;
+  margin-bottom: 30px;
   width: 793.74px;
   height: 34.91px;
   display: flex;
@@ -247,7 +247,7 @@
 
 /* process order */
 .orders-page .total-price-box-process {
-  margin-top: 30px;
+  margin-bottom: 30px;
   margin-left: 25px;
   width: 793.74px;
   height: 34.91px;

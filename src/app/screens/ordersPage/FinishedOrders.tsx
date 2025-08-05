@@ -5,7 +5,7 @@ export default function FinishedOrders() {
   return (
     <TabPanel value={"3"}>
       <Stack>
-        {[1, 2].map((ele, index) => {
+        {[].map((ele, index) => {
           return (
             <Box key={index} className="order-inf ">
               <Box className="order-box-scroll">
@@ -48,6 +48,14 @@ export default function FinishedOrders() {
             </Box>
           );
         })}
+        {true && (
+          <Box display={"flex"} flexDirection={"row"} justifyContent={"center"}>
+            <img
+              src="/icons/noimage-list.svg"
+              style={{ width: 300, height: 300 }}
+            />
+          </Box>
+        )}
       </Stack>
     </TabPanel>
   );

@@ -5,11 +5,11 @@ export default function PausedOrders() {
   return (
     <TabPanel value={"1"}>
       <Stack>
-        {[1, 2].map((ele, index) => {
+        {[1, 2, 3, 4, 5, 6].map((ele, index) => {
           return (
             <Box key={index} className="order-inf ">
               <Box className="order-box-scroll">
-                {[1, 2, 3].map((ele2, index2) => {
+                {[1, 2, 3, 4].map((ele2, index2) => {
                   return (
                     <Box key={index2} className="order-name-price">
                       <div className="order-name-price-inf">
@@ -58,6 +58,14 @@ export default function PausedOrders() {
             </Box>
           );
         })}
+        {false && (
+          <Box display={"flex"} flexDirection={"row"} justifyContent={"center"}>
+            <img
+              src="/icons/noimage-list.svg"
+              style={{ width: 300, height: 300 }}
+            />
+          </Box>
+        )}
       </Stack>
     </TabPanel>
   );
