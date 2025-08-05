@@ -40,7 +40,7 @@ export default function HomeNavbar() {
             ) : null}
 
             <Box className={"hover-line"}>
-              <NavLink to="/help" activeClassName={"underline"}>
+              <NavLink to="/helps" activeClassName={"underline"}>
                 Help{" "}
               </NavLink>
             </Box>
