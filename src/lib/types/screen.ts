@@ -5,12 +5,13 @@ import { Product } from "./product";
 
 export interface AppRootState {
   homePage: HomePageState;
+  //   productPage: ProductPageState
 }
 
 /** HOMEPAGE**/
 export interface HomePageState {
   popularDishes: Product[];
-  newDished: Product[];
+  newDishes: Product[];
   topUsers: Member[];
 }
 
