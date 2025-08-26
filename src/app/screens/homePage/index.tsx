@@ -28,6 +28,7 @@ export default function HomePage() {
   const { setPopularDishes } = actionDispatch(useDispatch());
   const { popularDishes } = useSelector(popularDishesRetriver);
   // selector: store => date
+
   useEffect(() => {}, []);
 
   return (
