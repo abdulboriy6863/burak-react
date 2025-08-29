@@ -23,7 +23,7 @@ const newrDishesRetriever = createSelector(retrieveNewDishes, (newDishes) => ({
 
 export default function NewDishes() {
   const { newDishes } = useSelector(newrDishesRetriever);
-  console.log("newDishes", newDishes);
+  console.log("newDishes::::::", newDishes);
 
   return (
     <div className="new-dishes-frame">
@@ -39,6 +39,7 @@ export default function NewDishes() {
                     product.productCollection === ProductCollection.DRINK
                       ? product.productVolume + "l"
                       : product.productSize + " size ";
+                  console.log("ramslar:::::=>>", imagePath);
 
                   return (
                     <Card

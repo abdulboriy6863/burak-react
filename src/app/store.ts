@@ -7,6 +7,7 @@ import {
 import HomePage from "./screens/homePage";
 import HomePageReducer from "./screens/homePage/slice";
 import ReduxLogger from "redux-logger";
+import ProductPageReducer from "./screens/productsPage/slice";
 
 export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
@@ -15,6 +16,7 @@ export const store = configureStore({
 
   reducer: {
     homePage: HomePageReducer,
+    productsPage: ProductPageReducer,
   },
 });
 
