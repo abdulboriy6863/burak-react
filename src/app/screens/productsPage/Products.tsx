@@ -273,7 +273,6 @@ export default function Products(props: ProductsProps) {
                               <Button
                                 className="shop-basket"
                                 onClick={(e) => {
-                                  console.log("BUTTONNNN");
                                   onAdd({
                                     _id: product._id,
                                     quantity: 1,
