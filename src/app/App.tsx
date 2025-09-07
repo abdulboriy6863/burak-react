@@ -16,18 +16,41 @@ import Test from "./screens/Test";
 import "../css/app.css";
 import "../css/navbar.css";
 import "../css/footer.css";
+import { T } from "../lib/types/common";
+import { sweetErrorHandling, sweetTopSuccessAlert } from "../lib/sweetAlert";
+import { Message } from "@mui/icons-material";
+import MemberService from "./services/MemberService";
+import { useGlobals } from "./hooks/useGlobals";
 
 function App() {
   const location = useLocation();
+  const { setAuthMember } = useGlobals();
 
   const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = useBasket();
   const [signupOpen, setSignupOpen] = useState<boolean>(false);
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   //HANDLER
 
   const handleSignUpClose = () => setSignupOpen(false);
   const handleLoginpClose = () => setLoginOpen(false);
+
+  const handleLogeOutClick = (e: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(e.currentTarget);
+  };
+  const handleCloseLogout = () => setAnchorEl(null);
+  const handleLogoutRequest = async () => {
+    try {
+      const member = new MemberService();
+      await member.logout();
+      await sweetTopSuccessAlert("success", 700);
+      setAuthMember(null);
+    } catch (err) {
+      console.log(err);
+      sweetErrorHandling("Something went worong!");
+    }
+  };
 
   return (
     <>
@@ -40,6 +63,10 @@ function App() {
           onDeleteAll={onDeleteAll}
           setSignupOpen={setSignupOpen}
           setLoginOpen={setLoginOpen}
+          anchorEl={anchorEl}
+          handleLogeOutClick={handleLogeOutClick}
+          handleCloseLogout={handleCloseLogout}
+          handleLogoutRequest={handleLogoutRequest}
         />
       ) : (
         <OtherNavbar
@@ -50,6 +77,10 @@ function App() {
           onDeleteAll={onDeleteAll}
           setSignupOpen={setSignupOpen}
           setLoginOpen={setLoginOpen}
+          anchorEl={anchorEl}
+          handleLogeOutClick={handleLogeOutClick}
+          handleCloseLogout={handleCloseLogout}
+          handleLogoutRequest={handleLogoutRequest}
         />
       )}
       <Switch>
