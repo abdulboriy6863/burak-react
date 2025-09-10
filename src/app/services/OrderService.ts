@@ -1,8 +1,12 @@
 import axios from "axios";
 import { serverApi } from "../../lib/config";
-import { Exposure } from "@mui/icons-material";
 import { CartItem } from "../../lib/types/search";
-import { Order, OrderInquiry, OrderItemInput } from "../../lib/types/order";
+import {
+  Order,
+  OrderInquiry,
+  OrderItemInput,
+  OrderUpdateInput,
+} from "../../lib/types/order";
 
 class OrderService {
   private readonly path: string;
@@ -21,7 +25,7 @@ class OrderService {
         };
       });
 
-      const url = this.path + "/order/create";
+      const url = `${this.path}/order/create`;
       const result = await axios.post(url, orderItems, {
         withCredentials: true,
       });
@@ -46,6 +50,20 @@ class OrderService {
       return result.data;
     } catch (err) {
       console.log("error, getMyOrders:", err);
+      throw err;
+    }
+  }
+
+  public async updateOrder(input: OrderUpdateInput): Promise<Order> {
+    try {
+      //  axios.defaults.withCredentials = true
+      const url = `${this.path}/order/update`;
+      const result = await axios.post(url, input, { withCredentials: true });
+      console.log("updateOrder", result);
+
+      return result.data;
+    } catch (err) {
+      console.log("error, updateOrder:", err);
       throw err;
     }
   }
