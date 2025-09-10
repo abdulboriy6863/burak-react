@@ -13,6 +13,9 @@ import { OrderStatus } from "../../../lib/enums/order.enum";
 import OrderService from "../../services/OrderService";
 import { useGlobals } from "../../hooks/useGlobals";
 import "../../../css/orders.css";
+import { useHistory } from "react-router-dom";
+import { serverApi } from "../../../lib/config";
+import { MemberType } from "../../../lib/enums/member.enum";
 
 /* reduxe slice selector */
 
@@ -25,7 +28,9 @@ const actionDispatch = (dispatch: Dispatch) => ({
 export default function OrdersPage() {
   const { setFinishedOrders, setPausedOrders, setProcessOrders } =
     actionDispatch(useDispatch());
-  const { orderBuilder } = useGlobals();
+  const { orderBuilder, authMember } = useGlobals();
+  const history = useHistory();
+
   const [value, setValue] = useState("1");
   const [orderInquiry, setOrderInquiry] = useState<OrderInquiry>({
     page: 1,
@@ -57,6 +62,8 @@ export default function OrdersPage() {
   const handleChange = (e: SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
+
+  if (!authMember) history.push("/");
 
   return (
     <div className="orders-page">
@@ -93,13 +100,35 @@ export default function OrdersPage() {
         </Stack>
         <Stack className="order-right">
           <Stack className="order-right-top">
-            <img src="/img/justin.webp" className="order-right-img" />
-            <p className="order-right-name">
-              Justin <br /> Nuser
+            <img
+              src={
+                authMember?.memberImage
+                  ? `${serverApi}/${authMember.memberImage} `
+                  : "/icons/default-user.svg"
+              }
+              className="order-right-img"
+            />
+            {/* <div className={"order-user-icon-box"}>
+              <img
+                src={
+                  authMember?.memberType === MemberType.RESTAURANT
+                    ? "/icons/restaurant.svg"
+                    : "/icons/user-badge.svg"
+                }
+                alt=""
+              />
+            </div> */}
+
+            <p className="order-right-name" style={{ textAlign: "center" }}>
+              {authMember?.memberNick}
+              <br /> {authMember?.memberType}
             </p>
             <p className="order-right-border"></p>
             <span className="order-right-location">
-              <img src="icons/location.svg" /> South Korea, Busan
+              <img src="icons/location.svg" />{" "}
+              {authMember?.memberAdress
+                ? authMember.memberAdress
+                : "do not exist"}
             </span>
           </Stack>
           <Stack className="order-right-button">

@@ -161,6 +161,7 @@
 }
 
 .orders-page .order-container .order-right-top .order-right-name {
+  text-align: center;
   margin-bottom: 10px;
   font-family: "Commissioner";
   font-size: 28px;
